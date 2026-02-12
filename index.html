@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thirty3 Labs — Creative + Technical Agency | Austin, TX</title>
-  <meta name="description" content="Thirty3 Labs is a full-spectrum creative and technical agency in Austin, TX. Photography, experiential marketing, event production, and software development — all under one roof.">
+  <title>Thirty3 Labs — Creative + Technical Agency | Dallas, TX</title>
+  <meta name="description" content="Thirty3 Labs is a full-spectrum creative and technical agency in Dallas, TX. Photography, experiential marketing, event production, and software development — all under one roof.">
   <link rel="canonical" href="https://thirty3labs.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Thirty3 Labs — Creative + Technical Agency">
-  <meta property="og:description" content="Where creativity meets code. Photography, experiential marketing, events, and software development from Austin, TX.">
+  <meta property="og:description" content="We make things people remember. Photography, experiential marketing, events, and brand strategy from Dallas, TX.">
   <meta property="og:url" content="https://thirty3labs.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
@@ -18,7 +18,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Thirty3 Labs — Creative + Technical Agency">
-  <meta name="twitter:description" content="Where creativity meets code. Photography, experiential marketing, events, and software development from Austin, TX.">
+  <meta name="twitter:description" content="We make things people remember. Photography, experiential marketing, events, and brand strategy from Dallas, TX.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,12 +41,11 @@
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "5511 Parkcrest Dr., Suite 103, #922",
-      "addressLocality": "Austin",
+      "addressLocality": "Dallas",
       "addressRegion": "TX",
-      "postalCode": "78731-4938",
       "addressCountry": "US"
     },
-    "areaServed": "Austin, TX",
+    "areaServed": "Dallas, TX",
     "knowsAbout": ["Photography", "Videography", "Experiential Marketing", "Event Planning", "Software Development", "Brand Strategy"]
   }
   </script>
@@ -364,6 +363,57 @@
     .philosophy-point p {
       color: var(--text-muted);
       font-size: 0.95rem;
+    }
+
+    /* ── Quote Hero ── */
+    .quote-hero {
+      padding: 120px 0;
+      background: var(--text);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-hero::before {
+      content: '\201C';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: Georgia, serif;
+      font-size: 20rem;
+      color: rgba(255, 255, 255, 0.03);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .quote-hero blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+
+    .quote-hero cite {
+      display: block;
+      font-style: normal;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .quote-hero p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
 
     /* ── Services ── */
@@ -690,17 +740,6 @@
       color: var(--text-muted);
     }
 
-    .footer-quote {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      max-width: 500px;
-    }
-
     /* ── Mobile Nav Overlay ── */
     .nav-overlay {
       display: none;
@@ -825,9 +864,9 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <p class="hero-tag reveal">Austin, TX &mdash; Creative + Technical Agency</p>
-        <h1 class="reveal">Where creativity<br>meets code.</h1>
-        <p class="reveal">Photography, experiential marketing, event production, and software development &mdash; all under one roof. We build brands, ship products, and create experiences that people remember.</p>
+        <p class="hero-tag reveal">Dallas, TX &mdash; Creative + Technical Agency</p>
+        <h1 class="reveal">We make things<br>people remember.</h1>
+        <p class="reveal">Photography, experiential marketing, event production, and brand strategy &mdash; all under one roof. We build campaigns, launch products, and create experiences that stick.</p>
         <div class="hero-actions reveal">
           <a href="#portfolio" class="btn-primary">See our work &darr;</a>
           <a href="#contact" class="btn-secondary">Start a project</a>
@@ -875,6 +914,15 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Quote Hero -->
+  <section class="quote-hero">
+    <div class="container">
+      <blockquote class="reveal">&ldquo;Brand is not what you say it is.<br>It&rsquo;s what they say it is.&rdquo;</blockquote>
+      <cite class="reveal">&mdash; Marty Neumeier</cite>
+      <p class="reveal">Your brand lives in the minds of your audience &mdash; shaped by every experience, every interaction, every delivery. We help make sure what they say is worth repeating.</p>
     </div>
   </section>
 
@@ -1015,7 +1063,7 @@
             </div>
             <div>
               <h4>Location</h4>
-              <p>Austin, TX</p>
+              <p>Dallas, TX</p>
             </div>
           </div>
           <div class="contact-row">
@@ -1050,8 +1098,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-copy">&copy; 2026 Thirty3 Labs LLC &middot; Austin, TX</p>
-      <p class="footer-quote">&ldquo;Brand is not what you say it is. It&rsquo;s what they say it is.&rdquo;</p>
+      <p class="footer-copy">&copy; 2026 Thirty3 Labs LLC &middot; Dallas, TX</p>
     </div>
   </footer>
 
