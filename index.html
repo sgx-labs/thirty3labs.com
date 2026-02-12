@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thirty3 Labs — Creative + Technical Agency | Austin, TX</title>
+  <meta name="description" content="Thirty3 Labs is a full-spectrum creative and technical agency in Austin, TX. Photography, experiential marketing, event production, and software development — all under one roof.">
+  <link rel="canonical" href="https://thirty3labs.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thirty3 Labs — Creative + Technical Agency">
+  <meta property="og:description" content="Where creativity meets code. Photography, experiential marketing, events, and software development from Austin, TX.">
+  <meta property="og:url" content="https://thirty3labs.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thirty3 Labs — Creative + Technical Agency">
+  <meta name="twitter:description" content="Where creativity meets code. Photography, experiential marketing, events, and software development from Austin, TX.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Thirty3 Labs LLC",
+    "description": "Full-spectrum creative and technical agency specializing in photography, experiential marketing, event production, and software development.",
+    "url": "https://thirty3labs.com",
+    "email": "sean@thirty3labs.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Sean Gleason"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5511 Parkcrest Dr., Suite 103, #922",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "postalCode": "78731-4938",
+      "addressCountry": "US"
+    },
+    "areaServed": "Austin, TX",
+    "knowsAbout": ["Photography", "Videography", "Experiential Marketing", "Event Planning", "Software Development", "Brand Strategy"]
+  }
+  </script>
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ── */
+    :root {
+      --bg: #FAFAF8;
+      --bg-alt: #F2F0EC;
+      --text: #1A1A1A;
+      --text-muted: #5C5C5C;
+      --accent: #D97548;
+      --accent-hover: #C4623A;
+      --teal: #2D5F6F;
+      --teal-light: #3A7A8C;
+      --border: #E0DDD8;
+      --white: #FFFFFF;
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --max-width: 1200px;
+      --section-pad: 120px;
+      --nav-height: 72px;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── Reveal Animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 180px 0 var(--section-pad);
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* ── Section Shared ── */
+    .section {
+      padding: var(--section-pad) 0;
+    }
+    .section-alt {
+      background: var(--bg-alt);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ── Philosophy ── */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .philosophy-quote {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--teal);
+      position: relative;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .philosophy-points {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .philosophy-point {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .philosophy-point-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+
+    .philosophy-point h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .philosophy-point p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ── Services ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .service-card {
+      padding: 36px 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      line-height: 1.6;
+    }
+
+    /* ── Portfolio ── */
+    .portfolio-featured {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+    }
+
+    .portfolio-visual {
+      background: linear-gradient(135deg, #1A1A1A 0%, #2D5F6F 100%);
+      border-radius: 12px;
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+
+    .portfolio-visual-name {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #D97548;
+      letter-spacing: 0.08em;
+    }
+
+    .portfolio-visual-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .portfolio-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-info > p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .portfolio-stats {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+
+    .portfolio-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-stat-value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--teal);
+    }
+
+    .portfolio-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: gap 0.2s;
+    }
+    .portfolio-link:hover { gap: 10px; }
+
+    .portfolio-more {
+      margin-top: 40px;
+      padding: 40px;
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .portfolio-more p {
+      font-size: 1rem;
+    }
+    .portfolio-more a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── How We Work ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .how-card {
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .how-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.3;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .how-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .how-card p {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      line-height: 1.6;
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 60px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-row-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-row h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-row p,
+    .contact-row a {
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .contact-row a {
+      color: var(--accent);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-row a:hover { color: var(--accent-hover); }
+
+    .contact-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .contact-social a {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-social a:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .contact-cta {
+      background: var(--teal);
+      border-radius: 16px;
+      padding: 48px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact-cta p {
+      opacity: 0.85;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--white);
+      color: var(--teal);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      align-self: flex-start;
+    }
+    .btn-white:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .footer-quote {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      max-width: 500px;
+    }
+
+    /* ── Mobile Nav Overlay ── */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(250, 250, 248, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .nav-overlay.open { display: flex; }
+
+    .nav-overlay a {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .nav-overlay a:hover { color: var(--accent); }
+
+    .nav-overlay-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      :root {
+        --section-pad: 80px;
+      }
+
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .portfolio-featured {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --section-pad: 60px;
+      }
+
+      .container { padding: 0 20px; }
+
+      .hero { padding: 140px 0 var(--section-pad); }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-featured { padding: 24px; }
+      .portfolio-stats { flex-wrap: wrap; gap: 20px; }
+
+      .contact-cta { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">Thirty3 <span>Labs</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Start a Project &rarr;</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.nav-overlay').classList.add('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay">
+    <button class="nav-overlay-close" aria-label="Close menu" onclick="this.parentElement.classList.remove('open')">&times;</button>
+    <a href="#services" onclick="this.parentElement.classList.remove('open')">Services</a>
+    <a href="#portfolio" onclick="this.parentElement.classList.remove('open')">Work</a>
+    <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
+    <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
+    <a href="#contact" class="btn-primary" onclick="this.parentElement.classList.remove('open')">Start a Project &rarr;</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-tag reveal">Austin, TX &mdash; Creative + Technical Agency</p>
+        <h1 class="reveal">Where creativity<br>meets code.</h1>
+        <p class="reveal">Photography, experiential marketing, event production, and software development &mdash; all under one roof. We build brands, ship products, and create experiences that people remember.</p>
+        <div class="hero-actions reveal">
+          <a href="#portfolio" class="btn-primary">See our work &darr;</a>
+          <a href="#contact" class="btn-secondary">Start a project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="section section-alt" id="philosophy">
+    <div class="container">
+      <p class="section-label reveal">Our Philosophy</p>
+      <h2 class="section-heading reveal">We build what we market.<br>We market what we build.</h2>
+      <div class="philosophy-grid">
+        <div class="philosophy-quote reveal">
+          Most agencies outsource the technical work. Most dev shops ignore the marketing. We do both &mdash; because the best products ship when strategy and execution live in the same room.
+        </div>
+        <div class="philosophy-points">
+          <div class="philosophy-point reveal">
+            <div class="philosophy-point-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <h3>Full-Stack Thinking</h3>
+              <p>From brand identity to production code &mdash; we see the whole picture and connect the dots others miss.</p>
+            </div>
+          </div>
+          <div class="philosophy-point reveal">
+            <div class="philosophy-point-icon" style="background: var(--teal);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <h3>Founder-Led, Network-Powered</h3>
+              <p>Senior attention on every project. Specialist talent from a trusted network when you need it.</p>
+            </div>
+          </div>
+          <div class="philosophy-point reveal">
+            <div class="philosophy-point-icon" style="background: var(--text);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3>We Ship Our Own Products</h3>
+              <p>SAME is a developer tool we built, designed, branded, and brought to market ourselves. That's proof, not a pitch deck.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <p class="section-label reveal">What We Do</p>
+      <h2 class="section-heading reveal">Creative and technical,<br>under one roof.</h2>
+      <p class="section-sub reveal">Whether you need a brand campaign, an event experience, or a production-ready application &mdash; we handle it.</p>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <h3>Photography &amp; Videography</h3>
+          <p>Campaign shoots, product photography, brand films, event coverage, and social content that actually stops the scroll.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Experiential Marketing</h3>
+          <p>Pop-ups, activations, immersive installations, and in-person experiences that create real connections with your audience.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Event Planning &amp; Production</h3>
+          <p>End-to-end event management from concept to teardown. Conferences, launches, brand dinners, and everything in between.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Software Development</h3>
+          <p>Bespoke web applications, developer tools, APIs, and integrations. We build production software, not prototypes.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3>Brand Strategy</h3>
+          <p>Positioning, messaging, visual identity, and go-to-market strategy for products and companies that want to stand out.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg>
+          </div>
+          <h3>Technical Production</h3>
+          <p>A/V engineering, interactive installations, digital signage, and the technical infrastructure that makes live experiences work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="section section-alt" id="portfolio">
+    <div class="container">
+      <p class="section-label reveal">Selected Work</p>
+      <h2 class="section-heading reveal">Built, branded,<br>and brought to market.</h2>
+      <div class="portfolio-featured reveal">
+        <div class="portfolio-visual">
+          <div class="portfolio-visual-name">SAME</div>
+          <div class="portfolio-visual-tagline">Stateless Agent Memory Engine</div>
+        </div>
+        <div class="portfolio-info">
+          <h3>SAME &mdash; Developer Tool</h3>
+          <p>A local-first persistent memory engine for AI coding agents. We handled everything: architecture, development, brand identity, website, documentation, and go-to-market &mdash; proving the integrated model works.</p>
+          <div class="portfolio-stats">
+            <div class="portfolio-stat">
+              <span class="portfolio-stat-value">Local-First</span>
+              <span class="portfolio-stat-label">Zero cloud dependency</span>
+            </div>
+            <div class="portfolio-stat">
+              <span class="portfolio-stat-value">Open Source</span>
+              <span class="portfolio-stat-label">BSL 1.1 license</span>
+            </div>
+            <div class="portfolio-stat">
+              <span class="portfolio-stat-value">Full GTM</span>
+              <span class="portfolio-stat-label">End-to-end execution</span>
+            </div>
+          </div>
+          <a href="/same" class="portfolio-link">Read the full case study &rarr;</a>
+        </div>
+      </div>
+      <div class="portfolio-more reveal">
+        <p>More projects coming soon. <a href="#contact">Have something in mind?</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-label reveal">How We Work</p>
+      <h2 class="section-heading reveal">Small core. Vast network.</h2>
+      <p class="section-sub reveal">Thirty3 Labs is founder-led by Sean Gleason. You get senior attention on every project, with specialist talent brought in from a trusted network when the work demands it.</p>
+      <div class="how-grid">
+        <div class="how-card reveal">
+          <div class="how-number">01</div>
+          <h3>Understand</h3>
+          <p>We start by listening. What are you building? Who is it for? What does success look like? No templated discovery decks &mdash; just real conversation.</p>
+        </div>
+        <div class="how-card reveal">
+          <div class="how-number">02</div>
+          <h3>Execute</h3>
+          <p>Strategy without execution is a slide deck. We move fast, stay lean, and build the thing &mdash; whether it's a campaign, an event, or a product.</p>
+        </div>
+        <div class="how-card reveal">
+          <div class="how-number">03</div>
+          <h3>Deliver</h3>
+          <p>No hand-off into a void. We ship, measure, and iterate. If we built it, we stand behind it. If we marketed it, we track the results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <p class="section-label reveal">Get In Touch</p>
+      <h2 class="section-heading reveal">Let's build something.</h2>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:sean@thirty3labs.com">sean@thirty3labs.com</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>Austin, TX</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <h4>Connect</h4>
+              <div class="contact-social">
+                <a href="https://instagram.com/thirty3labs" target="_blank" rel="noopener" aria-label="Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://linkedin.com/company/thirty3labs" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://twitter.com/thirty3labs" target="_blank" rel="noopener" aria-label="Twitter">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta reveal">
+          <h3>Ready to start?</h3>
+          <p>Whether it's a brand launch, a product build, or an event you're planning &mdash; we'd love to hear about it. No pitch decks required.</p>
+          <a href="mailto:sean@thirty3labs.com" class="btn-white">Email Us &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026 Thirty3 Labs LLC &middot; Austin, TX</p>
+      <p class="footer-quote">&ldquo;Brand is not what you say it is. It&rsquo;s what they say it is.&rdquo;</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      els.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>

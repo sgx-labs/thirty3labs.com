@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAME Case Study — Thirty3 Labs</title>
+  <meta name="description" content="How Thirty3 Labs built SAME (Stateless Agent Memory Engine) — a developer tool taken from concept to market with integrated creative and technical execution.">
+  <link rel="canonical" href="https://thirty3labs.com/same">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SAME Case Study — Thirty3 Labs">
+  <meta property="og:description" content="How we built a developer tool and brought it to market. Architecture, brand identity, GTM — end to end.">
+  <meta property="og:url" content="https://thirty3labs.com/same">
+  <meta property="og:type" content="article">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SAME Case Study — Thirty3 Labs">
+  <meta name="twitter:description" content="How we built a developer tool and brought it to market. Architecture, brand identity, GTM — end to end.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --bg-alt: #F2F0EC;
+      --text: #1A1A1A;
+      --text-muted: #5C5C5C;
+      --accent: #D97548;
+      --accent-hover: #C4623A;
+      --teal: #2D5F6F;
+      --teal-light: #3A7A8C;
+      --border: #E0DDD8;
+      --white: #FFFFFF;
+      --dark: #0d1117;
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --max-width: 860px;
+      --section-pad: 100px;
+      --nav-height: 72px;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-back {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* ── Case Study Hero ── */
+    .cs-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+
+    .cs-hero-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .cs-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .cs-hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .cs-hero-visual {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--teal) 100%);
+      border-radius: 16px;
+      padding: 64px 32px;
+      margin-top: 20px;
+    }
+
+    .cs-hero-visual-name {
+      font-family: var(--font-mono);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    .cs-hero-visual-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Section ── */
+    .cs-section {
+      padding: var(--section-pad) 0;
+    }
+    .cs-section + .cs-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .cs-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .cs-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .cs-body {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    .cs-body + .cs-body { margin-top: 16px; }
+
+    /* ── Problem / Solution columns ── */
+    .cs-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+    }
+
+    .cs-col-card {
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .cs-col-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .cs-col-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .cs-col-card ul {
+      list-style: none;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cs-col-card li {
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: var(--teal);
+      padding-left: 16px;
+      position: relative;
+    }
+    .cs-col-card li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── Role Grid ── */
+    .cs-role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .cs-role-item {
+      padding: 24px;
+      background: var(--bg-alt);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .cs-role-item-icon {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .cs-role-item h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .cs-role-item p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Results ── */
+    .cs-results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .cs-result-card {
+      padding: 32px 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cs-result-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    .cs-result-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Links ── */
+    .cs-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .cs-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s;
+    }
+    .cs-link:hover { transform: translateY(-1px); }
+
+    .cs-link-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .cs-link-primary:hover { background: var(--accent-hover); }
+
+    .cs-link-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+    .cs-link-secondary:hover { border-color: var(--text); }
+
+    .cs-link-back {
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      padding: 12px 0;
+    }
+    .cs-link-back:hover { color: var(--text); }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      :root { --section-pad: 64px; }
+
+      .container { padding: 0 20px; }
+
+      .cs-hero { padding: 130px 0 60px; }
+
+      .cs-hero-visual { padding: 40px 20px; }
+      .cs-hero-visual-name { font-size: 2.5rem; }
+
+      .cs-columns {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .cs-role-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .cs-results-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cs-role-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">Thirty3 <span>Labs</span></a>
+      <a href="/#portfolio" class="nav-back">&larr; Back to portfolio</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="cs-hero">
+    <div class="container">
+      <div class="cs-hero-badge reveal">Case Study</div>
+      <h1 class="reveal">SAME: Stateless Agent<br>Memory Engine</h1>
+      <p class="cs-hero-sub reveal">How we built a developer tool from scratch and brought it to market &mdash; product design, engineering, brand, and GTM under one roof.</p>
+      <div class="cs-hero-visual reveal">
+        <div class="cs-hero-visual-name">SAME</div>
+        <div class="cs-hero-visual-tagline">Persistent memory for AI coding agents</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-label reveal">The Problem</p>
+      <h2 class="cs-heading reveal">AI agents forget everything between sessions.</h2>
+      <p class="cs-body reveal">AI coding assistants like Claude Code, Cursor, and Windsurf are transforming software development. But they share a fundamental limitation: every new session starts from zero. Context is lost. Preferences are forgotten. Lessons learned evaporate.</p>
+      <p class="cs-body reveal">Developers compensate with manually curated rules files and copy-pasted notes, but it's fragile, tedious, and doesn't scale. The market needed a real solution &mdash; one that worked locally, respected privacy, and integrated seamlessly.</p>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-label reveal">The Solution</p>
+      <h2 class="cs-heading reveal">Local-first memory that works automatically.</h2>
+      <p class="cs-body reveal">SAME is a ~10MB Go binary that gives AI coding agents persistent, semantic memory. It runs entirely on your machine &mdash; no cloud, no accounts, no API keys for core functionality. Memories are stored in SQLite, embeddings are generated locally via Ollama, and context is surfaced automatically through MCP integration.</p>
+      <div class="cs-columns reveal">
+        <div class="cs-col-card">
+          <h3>Technical Architecture</h3>
+          <ul>
+            <li>Go binary, single-file install</li>
+            <li>SQLite storage + FTS5 search</li>
+            <li>Ollama embeddings (local)</li>
+            <li>MCP server (12 tools)</li>
+            <li>Gate chain quality control</li>
+            <li>BSL 1.1 &rarr; Apache 2.0 (2030)</li>
+          </ul>
+        </div>
+        <div class="cs-col-card">
+          <h3>Key Differentiators</h3>
+          <ul>
+            <li>Zero cloud dependency</li>
+            <li>Ambient &mdash; no manual tagging</li>
+            <li>Works with any MCP client</li>
+            <li>Semantic search, not keyword</li>
+            <li>Privacy by architecture</li>
+            <li>Cross-platform (macOS/Linux/Win)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Role -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-label reveal">Our Role</p>
+      <h2 class="cs-heading reveal">Everything. That's the point.</h2>
+      <p class="cs-body reveal">SAME isn't a client project &mdash; it's our own product. We handled every layer, from architecture decisions to community strategy, demonstrating the integrated creative + technical model that defines Thirty3 Labs.</p>
+      <div class="cs-role-grid reveal">
+        <div class="cs-role-item">
+          <div class="cs-role-item-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h4>Engineering</h4>
+          <p>Go backend, MCP server, installer scripts, CI/CD</p>
+        </div>
+        <div class="cs-role-item">
+          <div class="cs-role-item-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h4>Product Design</h4>
+          <p>UX flows, CLI interface, documentation architecture</p>
+        </div>
+        <div class="cs-role-item">
+          <div class="cs-role-item-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Brand Identity</h4>
+          <p>Naming, visual identity, tone of voice, positioning</p>
+        </div>
+        <div class="cs-role-item">
+          <div class="cs-role-item-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h4>Website</h4>
+          <p>statelessagent.com — landing, docs, SEO, LLM integration</p>
+        </div>
+        <div class="cs-role-item">
+          <div class="cs-role-item-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h4>Content</h4>
+          <p>Documentation, blog posts, social content, launch copy</p>
+        </div>
+        <div class="cs-role-item">
+          <div class="cs-role-item-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>Go-to-Market</h4>
+          <p>Launch strategy, community seeding, distribution channels</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-label reveal">Results</p>
+      <h2 class="cs-heading reveal">Shipped, positioned, and growing.</h2>
+      <p class="cs-body reveal">SAME launched as a fully realized product: binary downloads, cross-platform installers, comprehensive documentation, and a clear competitive position against well-funded alternatives like Mem0 ($24M raised) and built-in solutions from major AI tools.</p>
+      <div class="cs-results-grid reveal">
+        <div class="cs-result-card">
+          <div class="cs-result-value">v0.7.0</div>
+          <div class="cs-result-label">Current release</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">12 Tools</div>
+          <div class="cs-result-label">MCP integration</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">3 Platforms</div>
+          <div class="cs-result-label">macOS, Linux, Windows</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">~10MB</div>
+          <div class="cs-result-label">Single binary</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">Zero Cloud</div>
+          <div class="cs-result-label">Fully local architecture</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">Full GTM</div>
+          <div class="cs-result-label">End-to-end execution</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-label reveal">Explore</p>
+      <h2 class="cs-heading reveal">See it for yourself.</h2>
+      <div class="cs-links reveal">
+        <a href="https://statelessagent.com" target="_blank" rel="noopener" class="cs-link cs-link-primary">Visit statelessagent.com &rarr;</a>
+        <a href="https://github.com/sgx-labs/statelessagent" target="_blank" rel="noopener" class="cs-link cs-link-secondary">View on GitHub &rarr;</a>
+        <a href="/" class="cs-link cs-link-back">&larr; Back to Thirty3 Labs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026 Thirty3 Labs LLC &middot; Austin, TX</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      els.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
