@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply — Thirty3 Labs Network</title>
+  <meta name="description" content="Join the Thirty3 Labs network. Apply as creative/technical talent or as a vendor partner.">
+  <link rel="canonical" href="https://thirty3labs.com/apply">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:title" content="Apply — Thirty3 Labs Network">
+  <meta property="og:description" content="Join the Thirty3 Labs network of vetted creative and technical talent.">
+  <meta property="og:url" content="https://thirty3labs.com/apply">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --bg-alt: #F2F0EC;
+      --text: #1A1A1A;
+      --text-muted: #5C5C5C;
+      --accent: #D97548;
+      --accent-hover: #C4623A;
+      --teal: #2D5F6F;
+      --border: #E0DDD8;
+      --white: #FFFFFF;
+      --red: #C53030;
+      --red-bg: #FFF5F5;
+      --green: #276749;
+      --green-bg: #F0FFF4;
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --max-width: 720px;
+      --nav-height: 72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); }
+
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-back {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .page-header {
+      padding: calc(var(--nav-height) + 60px) 0 40px;
+    }
+
+    .page-header-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* Type Selector */
+    .type-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .type-option {
+      padding: 24px;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      text-align: left;
+    }
+    .type-option:hover {
+      border-color: var(--accent);
+    }
+    .type-option.selected {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .type-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .type-option-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .type-option-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+    }
+    .type-option-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .type-option.selected .type-option-dot {
+      border-color: var(--accent);
+    }
+    .type-option.selected .type-option-dot::after {
+      opacity: 1;
+    }
+
+    .type-option-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-left: 26px;
+    }
+
+    /* Form */
+    .form-section {
+      margin-bottom: 36px;
+    }
+
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    .form-row-double {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    label .required {
+      color: var(--red);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    input.error,
+    select.error,
+    textarea.error {
+      border-color: var(--red);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235C5C5C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .field-error {
+      font-size: 0.8rem;
+      color: var(--red);
+      margin-top: 4px;
+      display: none;
+    }
+
+    .field-error.visible {
+      display: block;
+    }
+
+    /* Checkbox Grid */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border);
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      position: relative;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .checkbox-item input[type="checkbox"]:checked {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 5px;
+      height: 9px;
+      border: solid var(--white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    /* Honeypot */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      tab-index: -1;
+    }
+
+    /* Submit */
+    .form-submit {
+      margin-top: 8px;
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-submit .spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-label { display: none; }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Form-level error */
+    .form-error {
+      display: none;
+      padding: 14px 18px;
+      background: var(--red-bg);
+      border: 1px solid var(--red);
+      border-radius: 8px;
+      color: var(--red);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .form-error.visible { display: block; }
+
+    /* Success State */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 80px 0 120px;
+    }
+    .success-state.visible { display: block; }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .success-icon svg {
+      color: var(--green);
+    }
+
+    .success-state h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .success-state p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .success-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      background: var(--bg-alt);
+      color: var(--text);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .success-back:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    /* Form wrapper (hides on success) */
+    .form-wrapper { display: block; }
+    .form-wrapper.hidden { display: none; }
+
+    /* Footer */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .type-selector {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row-double {
+        grid-template-columns: 1fr;
+      }
+
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header {
+        padding-top: calc(var(--nav-height) + 40px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn-submit { transition: none; }
+      .btn-submit .spinner { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Thirty3 <span>Labs</span></a>
+      <a href="/" class="nav-back">&larr; Back to site</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header class="page-header">
+      <p class="page-header-label">Join the Network</p>
+      <h1>Apply to work with us.</h1>
+      <p>Every person in our network has been vetted through real projects. Tell us about yourself and what you do &mdash; if it's a fit, we'll be in touch.</p>
+    </header>
+
+    <!-- Success State -->
+    <div class="success-state" id="success">
+      <div class="success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Application received.</h2>
+      <p>Thanks for your interest. We review every application personally &mdash; if there's a fit, you'll hear from Sean directly.</p>
+      <a href="/" class="success-back">&larr; Back to Thirty3 Labs</a>
+    </div>
+
+    <!-- Form -->
+    <div class="form-wrapper" id="formWrapper">
+      <form id="applyForm" novalidate>
+
+        <!-- Type Selector -->
+        <div class="type-selector">
+          <label class="type-option" id="optTalent">
+            <input type="radio" name="type" value="talent">
+            <div class="type-option-title">
+              <span class="type-option-dot"></span>
+              Creative / Technical Talent
+            </div>
+            <div class="type-option-desc">Photographer, developer, designer, producer, AV engineer, etc.</div>
+          </label>
+          <label class="type-option" id="optVendor">
+            <input type="radio" name="type" value="vendor">
+            <div class="type-option-title">
+              <span class="type-option-dot"></span>
+              Vendor / Partner
+            </div>
+            <div class="type-option-desc">Fabrication, rentals, catering, venues, staffing, logistics, etc.</div>
+          </label>
+        </div>
+
+        <div class="form-error" id="formError"></div>
+
+        <!-- Contact -->
+        <div class="form-section">
+          <div class="form-section-title">Contact Info</div>
+          <div class="form-row-double">
+            <div>
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+              <div class="field-error" id="nameError"></div>
+            </div>
+            <div>
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+              <div class="field-error" id="emailError"></div>
+            </div>
+          </div>
+          <div class="form-row-double">
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div>
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" placeholder="e.g. Dallas, TX" autocomplete="address-level2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Talent-specific fields -->
+        <div class="form-section" id="talentFields" style="display:none">
+          <div class="form-section-title">Your Work</div>
+          <div class="form-row-double">
+            <div>
+              <label for="primary_discipline">Primary Discipline <span class="required">*</span></label>
+              <select id="primary_discipline" name="primary_discipline">
+                <option value="">Select...</option>
+                <option>Photography</option>
+                <option>Videography</option>
+                <option>Directing</option>
+                <option>Graphic Design</option>
+                <option>Motion Design</option>
+                <option>Web Development</option>
+                <option>App Development</option>
+                <option>Production Management</option>
+                <option>Event Management</option>
+                <option>AV Engineering</option>
+                <option>Sound Design</option>
+                <option>Lighting Design</option>
+                <option>Fabrication</option>
+                <option>Styling</option>
+                <option>Other</option>
+              </select>
+              <div class="field-error" id="disciplineError"></div>
+            </div>
+            <div>
+              <label for="years_experience">Years of Experience</label>
+              <input type="number" id="years_experience" name="years_experience" min="0" max="50" placeholder="e.g. 5">
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Additional Skills</label>
+            <div class="checkbox-grid" id="disciplinesGrid">
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Photography"> Photography</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Videography"> Videography</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Directing"> Directing</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Graphic Design"> Graphic Design</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Motion Design"> Motion Design</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Web Development"> Web Development</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="App Development"> App Development</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Production Management"> Production Management</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Event Management"> Event Management</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="AV Engineering"> AV Engineering</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Sound Design"> Sound Design</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Lighting Design"> Lighting Design</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Fabrication"> Fabrication</label>
+              <label class="checkbox-item"><input type="checkbox" name="disciplines" value="Styling"> Styling</label>
+            </div>
+          </div>
+          <div class="form-row-double">
+            <div>
+              <label for="portfolio_url">Portfolio URL</label>
+              <input type="url" id="portfolio_url" name="portfolio_url" placeholder="https://...">
+            </div>
+            <div>
+              <label for="linkedin_url">LinkedIn</label>
+              <input type="url" id="linkedin_url" name="linkedin_url" placeholder="https://linkedin.com/in/...">
+            </div>
+          </div>
+        </div>
+
+        <!-- Vendor-specific fields -->
+        <div class="form-section" id="vendorFields" style="display:none">
+          <div class="form-section-title">Your Business</div>
+          <div class="form-row-double">
+            <div>
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div>
+              <label for="vendor_type">Vendor Type <span class="required">*</span></label>
+              <select id="vendor_type" name="vendor_type">
+                <option value="">Select...</option>
+                <option>Fabrication & Build</option>
+                <option>Print & Signage</option>
+                <option>AV & Equipment Rental</option>
+                <option>Catering & F&B</option>
+                <option>Venue</option>
+                <option>Furniture & Decor Rental</option>
+                <option>Staffing</option>
+                <option>Transportation & Logistics</option>
+                <option>Other</option>
+              </select>
+              <div class="field-error" id="vendorTypeError"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Services Offered</label>
+            <div class="checkbox-grid" id="servicesGrid">
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Fabrication & Build"> Fabrication & Build</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Print & Signage"> Print & Signage</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="AV & Equipment Rental"> AV & Equipment Rental</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Catering & F&B"> Catering & F&B</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Venue"> Venue</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Furniture & Decor Rental"> Furniture & Decor Rental</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Staffing"> Staffing</label>
+              <label class="checkbox-item"><input type="checkbox" name="services_offered" value="Transportation & Logistics"> Transportation & Logistics</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="website">Website</label>
+            <input type="url" id="website" name="website" placeholder="https://...">
+          </div>
+        </div>
+
+        <!-- Bio (shared) -->
+        <div class="form-section" id="bioSection" style="display:none">
+          <div class="form-section-title">Tell Us About Yourself</div>
+          <div class="form-row">
+            <label for="bio">Bio <span class="required">*</span></label>
+            <textarea id="bio" name="bio" placeholder="What do you do? What kind of projects are you looking for? What should we know about working with you?"></textarea>
+            <div class="field-hint">Minimum 50 characters</div>
+            <div class="field-error" id="bioError"></div>
+          </div>
+          <div class="form-row">
+            <label for="referral_source">How did you hear about us?</label>
+            <input type="text" id="referral_source" name="referral_source">
+          </div>
+        </div>
+
+        <!-- Honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website_url">Website URL</label>
+          <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Submit -->
+        <div class="form-submit" id="submitSection" style="display:none">
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="spinner"></span>
+            <span class="btn-label">Submit Application</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026 Thirty3 Labs LLC &middot; Dallas, TX</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var form = document.getElementById('applyForm');
+      var formWrapper = document.getElementById('formWrapper');
+      var successEl = document.getElementById('success');
+      var formError = document.getElementById('formError');
+      var submitBtn = document.getElementById('submitBtn');
+
+      var optTalent = document.getElementById('optTalent');
+      var optVendor = document.getElementById('optVendor');
+      var talentFields = document.getElementById('talentFields');
+      var vendorFields = document.getElementById('vendorFields');
+      var bioSection = document.getElementById('bioSection');
+      var submitSection = document.getElementById('submitSection');
+
+      var selectedType = null;
+
+      // Read ?type= param from URL
+      var params = new URLSearchParams(window.location.search);
+      var preselect = params.get('type');
+
+      function selectType(type) {
+        selectedType = type;
+        optTalent.classList.toggle('selected', type === 'talent');
+        optVendor.classList.toggle('selected', type === 'vendor');
+        talentFields.style.display = type === 'talent' ? 'block' : 'none';
+        vendorFields.style.display = type === 'vendor' ? 'block' : 'none';
+        bioSection.style.display = 'block';
+        submitSection.style.display = 'block';
+
+        // Set the radio
+        var radio = form.querySelector('input[name="type"][value="' + type + '"]');
+        if (radio) radio.checked = true;
+      }
+
+      optTalent.addEventListener('click', function() { selectType('talent'); });
+      optVendor.addEventListener('click', function() { selectType('vendor'); });
+
+      // Auto-select from URL param
+      if (preselect === 'talent' || preselect === 'vendor') {
+        selectType(preselect);
+      }
+
+      // Validation helpers
+      function showError(id, msg) {
+        var el = document.getElementById(id);
+        if (el) { el.textContent = msg; el.classList.add('visible'); }
+      }
+      function clearErrors() {
+        var els = document.querySelectorAll('.field-error');
+        for (var i = 0; i < els.length; i++) {
+          els[i].textContent = '';
+          els[i].classList.remove('visible');
+        }
+        var inputs = document.querySelectorAll('.error');
+        for (var j = 0; j < inputs.length; j++) {
+          inputs[j].classList.remove('error');
+        }
+        formError.classList.remove('visible');
+      }
+
+      function markError(fieldId) {
+        var f = document.getElementById(fieldId);
+        if (f) f.classList.add('error');
+      }
+
+      function validate() {
+        clearErrors();
+        var ok = true;
+
+        if (!selectedType) {
+          formError.textContent = 'Please select whether you\'re applying as talent or a vendor.';
+          formError.classList.add('visible');
+          return false;
+        }
+
+        var name = form.name.value.trim();
+        if (!name || name.length < 2) {
+          showError('nameError', 'Name is required (min 2 characters)');
+          markError('name');
+          ok = false;
+        }
+
+        var email = form.email.value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError('emailError', 'Valid email is required');
+          markError('email');
+          ok = false;
+        }
+
+        if (selectedType === 'talent') {
+          if (!form.primary_discipline.value) {
+            showError('disciplineError', 'Primary discipline is required');
+            markError('primary_discipline');
+            ok = false;
+          }
+        }
+
+        if (selectedType === 'vendor') {
+          if (!form.vendor_type.value) {
+            showError('vendorTypeError', 'Vendor type is required');
+            markError('vendor_type');
+            ok = false;
+          }
+        }
+
+        var bio = form.bio.value.trim();
+        if (!bio || bio.length < 50) {
+          showError('bioError', 'Bio must be at least 50 characters (' + (bio ? bio.length : 0) + ' currently)');
+          markError('bio');
+          ok = false;
+        }
+
+        return ok;
+      }
+
+      // Gather checked values
+      function getChecked(name) {
+        var boxes = form.querySelectorAll('input[name="' + name + '"]:checked');
+        var vals = [];
+        for (var i = 0; i < boxes.length; i++) vals.push(boxes[i].value);
+        return vals.length > 0 ? vals : null;
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!validate()) return;
+
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+
+        var payload = {
+          type: selectedType,
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          phone: form.phone.value.trim() || null,
+          location: form.location.value.trim() || null,
+          bio: form.bio.value.trim(),
+          referral_source: form.referral_source.value.trim() || null,
+          website_url: form.website_url.value || '',
+        };
+
+        if (selectedType === 'talent') {
+          payload.primary_discipline = form.primary_discipline.value;
+          payload.disciplines = getChecked('disciplines');
+          payload.years_experience = form.years_experience.value ? Number(form.years_experience.value) : null;
+          payload.portfolio_url = form.portfolio_url.value.trim() || null;
+          payload.linkedin_url = form.linkedin_url.value.trim() || null;
+        }
+
+        if (selectedType === 'vendor') {
+          payload.company = form.company.value.trim() || null;
+          payload.vendor_type = form.vendor_type.value;
+          payload.services_offered = getChecked('services_offered');
+          payload.website = form.website.value.trim() || null;
+        }
+
+        fetch('/api/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+        .then(function(res) { return res.json().then(function(data) { return { status: res.status, data: data }; }); })
+        .then(function(result) {
+          submitBtn.classList.remove('loading');
+          submitBtn.disabled = false;
+
+          if (result.data.ok) {
+            formWrapper.classList.add('hidden');
+            successEl.classList.add('visible');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            var msg = result.data.error || 'Something went wrong.';
+            if (result.data.details && result.data.details.length) {
+              msg = result.data.details.join('. ');
+            }
+            formError.textContent = msg;
+            formError.classList.add('visible');
+            formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        })
+        .catch(function() {
+          submitBtn.classList.remove('loading');
+          submitBtn.disabled = false;
+          formError.textContent = 'Network error. Please check your connection and try again.';
+          formError.classList.add('visible');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

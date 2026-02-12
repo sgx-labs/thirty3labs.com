@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/apply.js": {
+      "maxDuration": 10
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
