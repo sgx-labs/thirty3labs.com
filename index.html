@@ -13,12 +13,16 @@
   <meta property="og:description" content="We make things people remember. Experiential activations, brand campaigns, and product launches from Dallas, TX.">
   <meta property="og:url" content="https://thirty3labs.com/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://thirty3labs.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Thirty3 Labs — Creative + Technical Agency">
   <meta name="twitter:description" content="We make things people remember. Experiential activations, brand campaigns, and product launches from Dallas, TX.">
+  <meta name="twitter:image" content="https://thirty3labs.com/og-image.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +35,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Thirty3 Labs LLC",
-    "description": "Full-spectrum creative and technical agency specializing in photography, experiential marketing, event production, and software development.",
+    "description": "Experiential activation orchestrator. We assemble vetted freelancers, vendors, and creative talent to produce brand activations, events, campaigns, and product launches.",
     "url": "https://thirty3labs.com",
     "email": "sean@thirty3labs.com",
     "founder": {
@@ -46,7 +50,7 @@
       "addressCountry": "US"
     },
     "areaServed": "Dallas, TX",
-    "knowsAbout": ["Photography", "Videography", "Experiential Marketing", "Event Planning", "Software Development", "Brand Strategy"]
+    "knowsAbout": ["Experiential Marketing", "Brand Activations", "Event Production", "Campaign Strategy", "Creative Production", "Technical Production"]
   }
   </script>
 
@@ -77,6 +81,24 @@
     }
 
     html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+    /* ── Skip to content ── */
+    .skip-to-content {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      z-index: 1001;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 0 0 8px 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: top 0.2s;
+    }
+    .skip-to-content:focus {
+      top: 0;
+    }
 
     body {
       font-family: var(--font-body);
@@ -410,7 +432,7 @@
 
     .quote-hero p {
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.65);
       max-width: 540px;
       margin: 0 auto;
       line-height: 1.7;
@@ -630,7 +652,7 @@
     }
 
     .network-card p {
-      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.85);
       font-size: 0.95rem;
       line-height: 1.7;
       margin-bottom: 24px;
@@ -751,7 +773,7 @@
     }
 
     .contact-cta p {
-      opacity: 0.85;
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 32px;
       line-height: 1.7;
     }
@@ -833,6 +855,31 @@
       line-height: 1;
     }
 
+    /* ── Focus Visible ── */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ── Reduced Motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .service-card,
+      .btn-primary,
+      .btn-secondary,
+      .btn-white,
+      .nav-cta,
+      .contact-social a,
+      .portfolio-link {
+        transition: none;
+      }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       :root {
@@ -888,6 +935,8 @@
   </style>
 </head>
 <body>
+
+  <a href="#services" class="skip-to-content">Skip to content</a>
 
   <!-- Nav -->
   <nav class="nav">
@@ -1068,7 +1117,7 @@
         </div>
       </div>
       <div class="portfolio-more reveal">
-        <p>More projects coming soon. <a href="#contact">Have something in mind?</a></p>
+        <p>Every project is different. <a href="#contact">Tell us about yours &rarr;</a></p>
       </div>
     </div>
   </section>
@@ -1151,14 +1200,8 @@
             <div>
               <h4>Connect</h4>
               <div class="contact-social">
-                <a href="https://instagram.com/thirty3labs" target="_blank" rel="noopener" aria-label="Instagram">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
                 <a href="https://www.linkedin.com/in/sean-gleason-7280142a/" target="_blank" rel="noopener" aria-label="LinkedIn">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="https://twitter.com/thirty3labs" target="_blank" rel="noopener" aria-label="Twitter">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
                 </a>
               </div>
             </div>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#2D5F6F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Accent bar -->
+  <rect x="80" y="200" width="4" height="120" rx="2" fill="#D97548"/>
+  <!-- Company name -->
+  <text x="104" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="#FFFFFF">Thirty3 <tspan fill="#D97548">Labs</tspan></text>
+  <!-- Tagline -->
+  <text x="104" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="rgba(255,255,255,0.7)">We make things people remember.</text>
+  <!-- Bottom info -->
+  <text x="104" y="520" font-family="monospace" font-size="16" font-weight="500" fill="#D97548" letter-spacing="3">EXPERIENTIAL ACTIVATIONS</text>
+  <text x="480" y="520" font-family="monospace" font-size="16" font-weight="500" fill="rgba(255,255,255,0.35)">|</text>
+  <text x="510" y="520" font-family="monospace" font-size="16" font-weight="500" fill="#D97548" letter-spacing="3">EVENTS</text>
+  <text x="640" y="520" font-family="monospace" font-size="16" font-weight="500" fill="rgba(255,255,255,0.35)">|</text>
+  <text x="670" y="520" font-family="monospace" font-size="16" font-weight="500" fill="#D97548" letter-spacing="3">CAMPAIGNS</text>
+  <text x="104" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="rgba(255,255,255,0.4)">thirty3labs.com  &#x00B7;  Dallas, TX</text>
+</svg>
