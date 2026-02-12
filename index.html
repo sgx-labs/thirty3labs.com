@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thirty3 Labs — Creative + Technical Agency | Dallas, TX</title>
-  <meta name="description" content="Thirty3 Labs is a full-spectrum creative and technical agency in Dallas, TX. Photography, experiential marketing, event production, and software development — all under one roof.">
+  <meta name="description" content="Thirty3 Labs orchestrates experiential activations, brand campaigns, and product launches through a vetted network of creative and technical talent. Based in Dallas, TX.">
   <link rel="canonical" href="https://thirty3labs.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Thirty3 Labs — Creative + Technical Agency">
-  <meta property="og:description" content="We make things people remember. Photography, experiential marketing, events, and brand strategy from Dallas, TX.">
+  <meta property="og:description" content="We make things people remember. Experiential activations, brand campaigns, and product launches from Dallas, TX.">
   <meta property="og:url" content="https://thirty3labs.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
@@ -18,7 +18,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Thirty3 Labs — Creative + Technical Agency">
-  <meta name="twitter:description" content="We make things people remember. Photography, experiential marketing, events, and brand strategy from Dallas, TX.">
+  <meta name="twitter:description" content="We make things people remember. Experiential activations, brand campaigns, and product launches from Dallas, TX.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -601,6 +601,62 @@
       line-height: 1.6;
     }
 
+    /* ── Network CTA ── */
+    .network-cta {
+      padding: var(--section-pad) 0;
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .network-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .network-card {
+      padding: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+    }
+
+    .network-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .network-card p {
+      opacity: 0.8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .network-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .network-card a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--white);
+    }
+
+    @media (max-width: 600px) {
+      .network-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Contact ── */
     .contact-grid {
       display: grid;
@@ -841,6 +897,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Work</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#network">Network</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#contact" class="nav-cta">Start a Project &rarr;</a></li>
       </ul>
@@ -856,6 +913,7 @@
     <a href="#services" onclick="this.parentElement.classList.remove('open')">Services</a>
     <a href="#portfolio" onclick="this.parentElement.classList.remove('open')">Work</a>
     <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
+    <a href="#network" onclick="this.parentElement.classList.remove('open')">Network</a>
     <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
     <a href="#contact" class="btn-primary" onclick="this.parentElement.classList.remove('open')">Start a Project &rarr;</a>
   </div>
@@ -866,7 +924,7 @@
       <div class="hero-content">
         <p class="hero-tag reveal">Dallas, TX &mdash; Creative + Technical Agency</p>
         <h1 class="reveal">We make things<br>people remember.</h1>
-        <p class="reveal">Photography, experiential marketing, event production, and brand strategy &mdash; all under one roof. We build campaigns, launch products, and create experiences that stick.</p>
+        <p class="reveal">Experiential activations, brand campaigns, events, and product launches &mdash; we're the glue that brings it all together. A vetted network of creative and technical talent, orchestrated by people who give a damn.</p>
         <div class="hero-actions reveal">
           <a href="#portfolio" class="btn-primary">See our work &darr;</a>
           <a href="#contact" class="btn-secondary">Start a project</a>
@@ -879,28 +937,28 @@
   <section class="section section-alt" id="philosophy">
     <div class="container">
       <p class="section-label reveal">Our Philosophy</p>
-      <h2 class="section-heading reveal">We build what we market.<br>We market what we build.</h2>
+      <h2 class="section-heading reveal">The glue between<br>the idea and the moment.</h2>
       <div class="philosophy-grid">
         <div class="philosophy-quote reveal">
-          Most agencies outsource the technical work. Most dev shops ignore the marketing. We do both &mdash; because the best products ship when strategy and execution live in the same room.
+          Great activations don't fail because of bad ideas. They fail because nobody connected the dots &mdash; the photographer, the fabricator, the AV crew, the developer, the strategist. We're that connection.
         </div>
         <div class="philosophy-points">
           <div class="philosophy-point reveal">
             <div class="philosophy-point-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
             </div>
             <div>
-              <h3>Full-Stack Thinking</h3>
-              <p>From brand identity to production code &mdash; we see the whole picture and connect the dots others miss.</p>
+              <h3>Vetted Network, Not a Roster</h3>
+              <p>Every freelancer and vendor we work with has been vetted through real projects. No job boards, no strangers &mdash; trusted people we'd hire again.</p>
             </div>
           </div>
           <div class="philosophy-point reveal">
             <div class="philosophy-point-icon" style="background: var(--teal);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
             <div>
-              <h3>Founder-Led, Network-Powered</h3>
-              <p>Senior attention on every project. Specialist talent from a trusted network when you need it.</p>
+              <h3>We Orchestrate, You Show Up</h3>
+              <p>You bring the vision. We assemble the right team, manage the moving parts, and make sure everything lands on time and on brand.</p>
             </div>
           </div>
           <div class="philosophy-point reveal">
@@ -908,8 +966,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
             <div>
-              <h3>We Ship Our Own Products</h3>
-              <p>SAME is a developer tool we built, designed, branded, and brought to market ourselves. That's proof, not a pitch deck.</p>
+              <h3>We Build Too</h3>
+              <p>SAME is a developer tool we built and brought to market ourselves. We're not just middlemen &mdash; we get our hands dirty.</p>
             </div>
           </div>
         </div>
@@ -929,51 +987,51 @@
   <!-- Services -->
   <section class="section" id="services">
     <div class="container">
-      <p class="section-label reveal">What We Do</p>
-      <h2 class="section-heading reveal">Creative and technical,<br>under one roof.</h2>
-      <p class="section-sub reveal">Whether you need a brand campaign, an event experience, or a production-ready application &mdash; we handle it.</p>
+      <p class="section-label reveal">What We Orchestrate</p>
+      <h2 class="section-heading reveal">Everything between<br>the brief and the moment.</h2>
+      <p class="section-sub reveal">We assemble the right people and manage the execution &mdash; so your activation, campaign, or launch actually happens the way you imagined it.</p>
       <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          </div>
-          <h3>Photography &amp; Videography</h3>
-          <p>Campaign shoots, product photography, brand films, event coverage, and social content that actually stops the scroll.</p>
-        </div>
         <div class="service-card reveal">
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
-          <h3>Experiential Marketing</h3>
-          <p>Pop-ups, activations, immersive installations, and in-person experiences that create real connections with your audience.</p>
+          <h3>Experiential Activations</h3>
+          <p>Pop-ups, brand activations, immersive installations, and in-person experiences. We assemble the team and run the show.</p>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <h3>Event Planning &amp; Production</h3>
+          <h3>Event Production</h3>
           <p>End-to-end event management from concept to teardown. Conferences, launches, brand dinners, and everything in between.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3>Software Development</h3>
-          <p>Bespoke web applications, developer tools, APIs, and integrations. We build production software, not prototypes.</p>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
           </div>
-          <h3>Brand Strategy</h3>
-          <p>Positioning, messaging, visual identity, and go-to-market strategy for products and companies that want to stand out.</p>
+          <h3>Brand &amp; Campaign Strategy</h3>
+          <p>Positioning, messaging, visual identity, and go-to-market. We help you figure out what to say and how to show up.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <h3>Content &amp; Production</h3>
+          <p>Photography, videography, social content, and brand films. We source and manage the right creative talent for the job.</p>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg>
           </div>
-          <h3>Technical Production</h3>
-          <p>A/V engineering, interactive installations, digital signage, and the technical infrastructure that makes live experiences work.</p>
+          <h3>Technical &amp; A/V</h3>
+          <p>Sound, lighting, interactive installations, digital signage &mdash; the infrastructure that makes live experiences actually work.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Software &amp; Digital</h3>
+          <p>Custom apps, event tech, websites, and integrations. When the activation needs something built, we build it.</p>
         </div>
       </div>
     </div>
@@ -1020,22 +1078,42 @@
     <div class="container">
       <p class="section-label reveal">How We Work</p>
       <h2 class="section-heading reveal">Small core. Vast network.</h2>
-      <p class="section-sub reveal">Thirty3 Labs is founder-led by Sean Gleason. You get senior attention on every project, with specialist talent brought in from a trusted network when the work demands it.</p>
+      <p class="section-sub reveal">Thirty3 Labs is founder-led by Sean Gleason. We keep the core small and the network deep &mdash; vetted freelancers, trusted vendors, and specialist talent assembled for each project.</p>
       <div class="how-grid">
         <div class="how-card reveal">
           <div class="how-number">01</div>
-          <h3>Understand</h3>
-          <p>We start by listening. What are you building? Who is it for? What does success look like? No templated discovery decks &mdash; just real conversation.</p>
+          <h3>Scope It</h3>
+          <p>You tell us what you're trying to pull off. We figure out what it takes &mdash; the people, the vendors, the timeline, the budget.</p>
         </div>
         <div class="how-card reveal">
           <div class="how-number">02</div>
-          <h3>Execute</h3>
-          <p>Strategy without execution is a slide deck. We move fast, stay lean, and build the thing &mdash; whether it's a campaign, an event, or a product.</p>
+          <h3>Assemble</h3>
+          <p>We pull from our vetted network &mdash; photographers, fabricators, AV techs, developers, designers &mdash; whoever the project needs. No strangers.</p>
         </div>
         <div class="how-card reveal">
           <div class="how-number">03</div>
-          <h3>Deliver</h3>
-          <p>No hand-off into a void. We ship, measure, and iterate. If we built it, we stand behind it. If we marketed it, we track the results.</p>
+          <h3>Execute</h3>
+          <p>We manage every moving part so you don't have to. One point of contact, one team, one outcome. We don't disappear after the handshake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join the Network -->
+  <section class="network-cta" id="network">
+    <div class="container">
+      <p class="section-label reveal" style="color: var(--accent);">Join the Network</p>
+      <h2 class="section-heading reveal" style="color: var(--white);">We're always looking for<br>good people.</h2>
+      <div class="network-grid">
+        <div class="network-card reveal">
+          <h3>Freelancers</h3>
+          <p>Photographers, videographers, designers, developers, producers, event managers &mdash; if you do great work and want to get booked on real projects, we want to hear from you.</p>
+          <a href="mailto:sean@thirty3labs.com?subject=Freelancer — Thirty3 Labs Network">Apply to the network &rarr;</a>
+        </div>
+        <div class="network-card reveal">
+          <h3>Vendors &amp; Partners</h3>
+          <p>Fabrication, printing, rentals, catering, AV, venues &mdash; if you're a vendor who delivers and doesn't flake, let's talk. We send work to people we trust.</p>
+          <a href="mailto:sean@thirty3labs.com?subject=Vendor — Thirty3 Labs Network">Become a partner &rarr;</a>
         </div>
       </div>
     </div>
